@@ -1,7 +1,7 @@
 # ArcAnimator
 ArcAnimator helps to create arc transition animation: 2.3+
 
-<img width="180" height="320" src="http://i.imgur.com/DSiQxbg.gif" />|<img width="180" height="320" src="http://i.imgur.com/aLcLrGk.gif" />
+<img width="270" height="480" src="http://i.imgur.com/DSiQxbg.gif" />|<img width="270" height="480" src="http://i.imgur.com/aLcLrGk.gif" />
 
 ArcAnimator Demo   |   TransitionLoop Demo*
 
@@ -28,6 +28,10 @@ Dependency
 ===
 - Library uses Jake Wharton's <a href="https://github.com/JakeWharton/NineOldAndroids/">NineOldAndroids</a> to support 2.3.+ devices.
 - Ozodrukh's <a href="https://github.com/ozodrukh/CircularReveal">CircularReveal</a> helped to create awesome TransitionLoop Demo
+
+Thanks
+===
+I want to thank <a href="https://github.com/SherzodAgzamov">Sherzod Agzamov</a> for helping to solve some Geometry problems & <a href="https://github.com/ozodrukh">Ozodrukh</a> for support and tips that help to make this library.
 
 License
 --------
