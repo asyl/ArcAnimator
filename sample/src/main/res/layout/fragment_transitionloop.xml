@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
+    <io.codetail.widget.RevealFrameLayout
         android:id="@+id/transition_blue_pair"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#3F51B5"
         android:visibility="invisible">
-    </FrameLayout>
+    </io.codetail.widget.RevealFrameLayout>
     <ImageButton
         android:id="@+id/transition_blue"
         android:layout_width="60dp"
@@ -24,4 +24,4 @@
         android:layout_marginBottom="20dp"
         android:visibility="invisible"
         android:background="@drawable/circle_test_button_red"/>
-</FrameLayout>
+</io.codetail.widget.RevealFrameLayout>
