@@ -14,12 +14,12 @@ Usage
 ===
 ```java
   //set up clipView and coordinates where clipView will move
-  ArcAnimator arcAnimator = ArcAnimator.createArcShift(clipView, endX, endY, DEGREE, SIDE)
+  ArcAnimator.createArcAnimator(clipView, endX, endY, DEGREE, SIDE)
                     .setDuration(500)
                     .start();
   
   //or specify nestView for clipView. Animator will take center x,y coordinates of nestView
-  ArcAnimator arcAnimator = ArcAnimator.createArcShift(clipView, nestView, DEGREE, SIDE)
+  ArcAnimator.createArcAnimator(clipView, nestView, DEGREE, SIDE)
                     .setDuration(500)
                     .start();
 ```

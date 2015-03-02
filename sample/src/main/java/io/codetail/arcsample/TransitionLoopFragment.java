@@ -17,10 +17,10 @@ import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
 
-import io.codetail.animation.ArcAnimator;
-import io.codetail.animation.Side;
 import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
+import io.codetail.animation.arcanimator.ArcAnimator;
+import io.codetail.animation.arcanimator.Side;
 
 
 public class TransitionLoopFragment extends Fragment {
@@ -70,7 +70,7 @@ public class TransitionLoopFragment extends Fragment {
 
             endBlueX = mParent.getRight()/2;
             endBlueY = (int) (mParent.getBottom()*0.8f);
-            ArcAnimator arcAnimator = ArcAnimator.createArcShift(mBlue, endBlueX,
+            ArcAnimator arcAnimator = ArcAnimator.createArcAnimator(mBlue, endBlueX,
                     endBlueY, 90, Side.LEFT)
                     .setDuration(500);
             arcAnimator.addListener(new SimpleListener(){
@@ -199,7 +199,7 @@ public class TransitionLoopFragment extends Fragment {
 
     void returnBlue(){
         mBlue.setVisibility(View.VISIBLE);
-        ArcAnimator arcAnimator = ArcAnimator.createArcShift(mBlue, startBlueX,
+        ArcAnimator arcAnimator = ArcAnimator.createArcAnimator(mBlue, startBlueX,
                 startBlueY, 90, Side.LEFT)
                 .setDuration(500);
         arcAnimator.start();

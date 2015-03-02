@@ -4,7 +4,7 @@
     tools:context=".MainActivity" tools:ignore="MergeRootFrame" >
 
     <fragment
-        class="io.codetail.arcsample.TransitionLoopFragment"
+        class="io.codetail.arcsample.ChooseFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

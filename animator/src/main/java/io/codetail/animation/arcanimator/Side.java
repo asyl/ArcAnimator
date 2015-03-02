@@ -1,4 +1,4 @@
-package io.codetail.animation;
+package io.codetail.animation.arcanimator;
 
 public enum Side {
     RIGHT(0), LEFT(1);

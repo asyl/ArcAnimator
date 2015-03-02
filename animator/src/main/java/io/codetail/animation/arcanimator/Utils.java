@@ -1,4 +1,4 @@
-package io.codetail.animation;
+package io.codetail.animation.arcanimator;
 
 import android.view.View;
 

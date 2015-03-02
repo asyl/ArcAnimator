@@ -1,4 +1,4 @@
-package io.codetail.animation;
+package io.codetail.animation.arcanimator;
 
 
 
@@ -13,15 +13,15 @@ import java.lang.ref.WeakReference;
 
 public class ArcAnimator extends Animator {
 
-    public static ArcAnimator createArcShift(View clipView, View nestView,
-                                          float degree, Side side){
+    public static ArcAnimator createArcAnimator(View clipView, View nestView,
+                                                float degree, Side side){
 
-        return createArcShift(clipView, Utils.centerX(nestView), Utils.centerY(nestView),
+        return createArcAnimator(clipView, Utils.centerX(nestView), Utils.centerY(nestView),
                 degree, side);
     }
 
-    public static ArcAnimator createArcShift(View clipView, float endX, float endY,
-                                          float degree, Side side){
+    public static ArcAnimator createArcAnimator(View clipView, float endX, float endY,
+                                                float degree, Side side){
 
         ArcMetric arcMetric = ArcMetric.evaluate(Utils.centerX(clipView), Utils.centerY(clipView),
                 endX, endY, degree, side);

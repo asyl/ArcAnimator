@@ -1,4 +1,4 @@
-package io.codetail.animation;
+package io.codetail.animation.arcanimator;
 
 
 import android.graphics.PointF;
@@ -113,7 +113,8 @@ class ArcMetric {
                         mEndDegree = mStartDegree - mAnimationDegree;
                     }
                 }else if(mStartPoint.y >= mZeroPoint.y){
-                    if(mStartPoint.y < mEndPoint.y){
+                    if(mStartPoint.y < mEndPoint.y ||
+                            (mStartPoint.y == mEndPoint.y && mStartPoint.x > mEndPoint.x)){
                         mStartDegree = 0 - mZeroStartDegree;
                         mEndDegree = mStartDegree - mAnimationDegree;
                     }else {
@@ -124,7 +125,8 @@ class ArcMetric {
                 break;
             case LEFT:
                 if(mStartPoint.y <= mZeroPoint.y){
-                    if(mStartPoint.y > mEndPoint.y){
+                    if(mStartPoint.y > mEndPoint.y ||
+                            (mStartPoint.y == mEndPoint.y && mStartPoint.x < mEndPoint.x)){
                         mStartDegree = 180 - mZeroStartDegree;
                         mEndDegree = mStartDegree - mAnimationDegree;
                     }else{
