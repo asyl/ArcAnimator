@@ -24,6 +24,23 @@ Usage
                     .start();
 ```
 
+Download
+===
+
+[![JitPack](https://img.shields.io/github/tag/asyl/ArcAnimator.svg?label=maven)](https://jitpack.io/#asyl/ArcAnimator)
+
+To include this library in your project add to your build.gradle:
+
+```gradle
+	repositories {
+	    maven { url "https://jitpack.io" }
+	}
+	
+	dependencies {
+	    compile 'com.github.asyl:ArcAnimator:v1.0.0'
+	}
+```
+
 Dependency
 ===
 - Library uses Jake Wharton's <a href="https://github.com/JakeWharton/NineOldAndroids/">NineOldAndroids</a> to support 2.3.+ devices.
