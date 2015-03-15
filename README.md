@@ -12,6 +12,12 @@ ArcAnimator Demo   |   TransitionLoop Demo*
 
 Usage
 ===
+Add the library to your project:
+```groovy
+  compile 'com.github.asyl.animation:arcanimator:1.0.0'
+```
+
+Then use it in your project code:
 ```java
   //set up clipView and coordinates where clipView will move
   ArcAnimator.createArcAnimator(clipView, endX, endY, DEGREE, SIDE)
