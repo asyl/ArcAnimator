@@ -39,12 +39,13 @@ public class ArcAnimator extends Animator {
         mTarget = new WeakReference<>(target);
 
         mAnimator = new WeakReference<>(
-                ObjectAnimator.ofFloat(
-                        ArcAnimator.this, // target
-                        "degree", // property
-                        arcmetric.getStartDegree(),
-                        arcmetric.getEndDegree())
+            ValueAnimator.ofFloat(arcmetric.getStartDegree(), arcmetric.getEndDegree())
         );
+        mAnimator.get().addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override public void onAnimationUpdate(ValueAnimator animation) {
+                setDegree((Float) animation.getAnimatedValue());
+            }
+        });
     }
 
     void setDegree(float degree){
