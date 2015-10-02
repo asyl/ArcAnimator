@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 
 import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewHelper;
 
 import java.lang.ref.WeakReference;
@@ -30,7 +30,7 @@ public class ArcAnimator extends Animator {
 
     ArcMetric mArcMetric;
     WeakReference<View> mTarget;
-    WeakReference<ObjectAnimator> mAnimator;
+    WeakReference<ValueAnimator> mAnimator;
     float mValue;
 
 
@@ -39,12 +39,13 @@ public class ArcAnimator extends Animator {
         mTarget = new WeakReference<>(target);
 
         mAnimator = new WeakReference<>(
-                ObjectAnimator.ofFloat(
-                        ArcAnimator.this, // target
-                        "degree", // property
-                        arcmetric.getStartDegree(),
-                        arcmetric.getEndDegree())
+            ValueAnimator.ofFloat(arcmetric.getStartDegree(), arcmetric.getEndDegree())
         );
+        mAnimator.get().addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override public void onAnimationUpdate(ValueAnimator animation) {
+                setDegree((Float) animation.getAnimatedValue());
+            }
+        });
     }
 
     void setDegree(float degree){
