@@ -1,8 +1,8 @@
 package io.codetail.arcsample;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
-import com.nineoldandroids.view.ViewHelper;
 
 import io.codetail.animation.arcanimator.ArcAnimator;
 import io.codetail.animation.arcanimator.ArcDebugView;
@@ -57,8 +55,8 @@ public class ArcTestFragment extends Fragment {
         mDurationEditor = (EditText) view.findViewById(R.id.arc_edit2);
         mArcDebugView = (ArcDebugView) view.findViewById(R.id.arc_debug);
 
-        startX = ViewHelper.getTranslationX(mElement);
-        startX = ViewHelper.getTranslationY(mElement);
+        startX = mElement.getTranslationX();
+        startX = mElement.getTranslationY();
 
         mDefiner.setOnClickListener(mClicker);
     }
@@ -66,21 +64,21 @@ public class ArcTestFragment extends Fragment {
     View.OnClickListener mClicker = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(TextUtils.isEmpty(mDegreeEditor.getText().toString())||
-                    TextUtils.isEmpty(mSideEditor.getText().toString())||
-                    TextUtils.isEmpty(mDurationEditor.getText().toString())){
+            if (TextUtils.isEmpty(mDegreeEditor.getText().toString()) ||
+                    TextUtils.isEmpty(mSideEditor.getText().toString()) ||
+                    TextUtils.isEmpty(mDurationEditor.getText().toString())) {
                 return;
             }
-            if(mSideEditor.getText().toString().equals("0")){
+            if (mSideEditor.getText().toString().equals("0")) {
                 mSide = Side.RIGHT;
-            }else if(mSideEditor.getText().toString().equals("1")){
+            } else if (mSideEditor.getText().toString().equals("1")) {
                 mSide = Side.LEFT;
-            }else {
+            } else {
                 return;
             }
 
-            ViewHelper.setTranslationX(mElement, startX);
-            ViewHelper.setTranslationY(mElement, startY);
+            mElement.setTranslationX(startX);
+            mElement.setTranslationY(startY);
 
             ArcAnimator arcAnimator = ArcAnimator.createArcAnimator(mElement, mParent, Float.parseFloat(mDegreeEditor.getText().toString()), mSide)
                     .setDuration(Integer.parseInt(mDurationEditor.getText().toString()));
