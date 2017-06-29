@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 public class MainActivity extends ActionBarActivity {
 
     @Override
@@ -14,7 +13,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

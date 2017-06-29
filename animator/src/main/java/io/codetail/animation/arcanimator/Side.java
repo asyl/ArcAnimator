@@ -6,6 +6,6 @@ public enum Side {
     final int value;
 
     Side(int value) {
-         this.value = value;
+        this.value = value;
     }
 }

@@ -2,32 +2,30 @@ package io.codetail.animation.arcanimator;
 
 import android.view.View;
 
-import com.nineoldandroids.view.ViewHelper;
-
 class Utils {
 
-    public static float sin(double degree){
+    public static float sin(double degree) {
         return (float) Math.sin(Math.toRadians(degree));
     }
 
-    public static float cos(double degree){
+    public static float cos(double degree) {
         return (float) Math.cos(Math.toRadians(degree));
     }
 
-    public static float asin(double value){
+    public static float asin(double value) {
         return (float) Math.toDegrees(Math.asin(value));
     }
 
-    public static float acos(double value){
+    public static float acos(double value) {
         return (float) Math.toDegrees(Math.acos(value));
     }
 
-    public static float centerX(View view){
-        return ViewHelper.getX(view) + view.getWidth()/2;
+    public static float centerX(View view) {
+        return view.getX() + view.getWidth() / 2;
     }
 
-    public static float centerY(View view){
-        return ViewHelper.getY(view) + view.getHeight()/2;
+    public static float centerY(View view) {
+        return view.getY() + view.getHeight() / 2;
     }
 
 }

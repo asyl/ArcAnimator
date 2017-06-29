@@ -25,7 +25,7 @@ public class ArcDebugView extends View {
     private static final int AXISPOINT1 = 0xFF9C27B0;//purple
     private static final int ABSOLUTEPOINT = 0xFF424242;//grey
 
-    public void drawArcAnimator(ArcAnimator arcAnimator){
+    public void drawArcAnimator(ArcAnimator arcAnimator) {
         mArcMetric = arcAnimator.mArcMetric;
         invalidate();
     }
@@ -47,18 +47,18 @@ public class ArcDebugView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(mArcMetric != null){
+        if (mArcMetric != null) {
             drawElements(canvas);
         }
     }
 
-    private void drawElements(Canvas canvas){
+    private void drawElements(Canvas canvas) {
         drawLines(canvas);
         drawCircles(canvas);
         drawPoints(canvas);
     }
 
-    private void drawPoints(Canvas canvas){
+    private void drawPoints(Canvas canvas) {
         mPaintFill.setColor(STARTPOINT);
         canvas.drawCircle(mArcMetric.mStartPoint.x, mArcMetric.mStartPoint.y, dpToPx(2), mPaintFill);
         mPaintFill.setColor(ENDPOINT);
@@ -73,7 +73,7 @@ public class ArcDebugView extends View {
         canvas.drawCircle(mArcMetric.mZeroPoint.x, mArcMetric.mZeroPoint.y, dpToPx(2), mPaintFill);
     }
 
-    private void drawLines(Canvas canvas){
+    private void drawLines(Canvas canvas) {
         mPaintStroke.setColor(PURPLE);
         canvas.drawLine(mArcMetric.mStartPoint.x, mArcMetric.mStartPoint.y,
                 mArcMetric.mEndPoint.x, mArcMetric.mEndPoint.y, mPaintStroke);
@@ -83,7 +83,7 @@ public class ArcDebugView extends View {
                 mArcMetric.mAxisPoint[mArcMetric.mSide.value].x, mArcMetric.mAxisPoint[mArcMetric.mSide.value].y, mPaintStroke);
     }
 
-    private void drawCircles(Canvas canvas){
+    private void drawCircles(Canvas canvas) {
         mPaintStroke.setColor(BLUE);
         canvas.drawCircle(mArcMetric.mStartPoint.x, mArcMetric.mStartPoint.y, mArcMetric.mRadius, mPaintStroke);
         canvas.drawCircle(mArcMetric.mEndPoint.x, mArcMetric.mEndPoint.y, mArcMetric.mRadius, mPaintStroke);
@@ -92,7 +92,7 @@ public class ArcDebugView extends View {
                 mArcMetric.mAxisPoint[mArcMetric.mSide.value].y, mArcMetric.mRadius, mPaintStroke);
     }
 
-    public int dpToPx(int dp){
+    public int dpToPx(int dp) {
         DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }

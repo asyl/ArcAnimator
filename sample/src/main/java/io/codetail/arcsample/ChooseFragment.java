@@ -30,13 +30,13 @@ public class ChooseFragment extends Fragment {
     View.OnClickListener mClicker = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch(v.getId()){
+            switch (v.getId()) {
                 case R.id.demo_arcanimation:
-                    getFragmentManager().beginTransaction().replace(R.id.container,new ArcTestFragment())
+                    getFragmentManager().beginTransaction().replace(R.id.container, new ArcTestFragment())
                             .addToBackStack(getClass().getName()).commit();
                     break;
                 case R.id.demo_transition:
-                    getFragmentManager().beginTransaction().replace(R.id.container,new TransitionLoopFragment())
+                    getFragmentManager().beginTransaction().replace(R.id.container, new TransitionLoopFragment())
                             .addToBackStack(getClass().getName()).commit();
                     break;
             }

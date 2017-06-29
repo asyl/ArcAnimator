@@ -1,5 +1,7 @@
 package io.codetail.arcsample;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,10 +14,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.view.ViewHelper;
 
 import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
@@ -68,12 +66,12 @@ public class TransitionLoopFragment extends Fragment {
             startBlueX = Utils.centerX(mBlue);
             startBlueY = Utils.centerY(mBlue);
 
-            endBlueX = mParent.getRight()/2;
-            endBlueY = (int) (mParent.getBottom()*0.8f);
+            endBlueX = mParent.getRight() / 2;
+            endBlueY = (int) (mParent.getBottom() * 0.8f);
             ArcAnimator arcAnimator = ArcAnimator.createArcAnimator(mBlue, endBlueX,
                     endBlueY, 90, Side.LEFT)
                     .setDuration(500);
-            arcAnimator.addListener(new SimpleListener(){
+            arcAnimator.addListener(new SimpleListener() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     mBlue.setVisibility(View.INVISIBLE);
@@ -85,7 +83,7 @@ public class TransitionLoopFragment extends Fragment {
     };
 
 
-    void appearBluePair(){
+    void appearBluePair() {
         mBluePair.setVisibility(View.VISIBLE);
 
         float finalRadius = Math.max(mBluePair.getWidth(), mBluePair.getHeight()) * 1.5f;
@@ -94,7 +92,7 @@ public class TransitionLoopFragment extends Fragment {
                 finalRadius);
         animator.setDuration(500);
         animator.setInterpolator(ACCELERATE);
-        animator.addListener(new SimpleListener(){
+        animator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd() {
                 raise();
@@ -103,10 +101,10 @@ public class TransitionLoopFragment extends Fragment {
         animator.start();
     }
 
-    void raise(){
+    void raise() {
         startBluePairBottom = mBluePair.getBottom();
         ObjectAnimator objectAnimator = ObjectAnimator.ofInt(mBluePair, "bottom", mBluePair.getBottom(), mBluePair.getTop() + dpToPx(100));
-        objectAnimator.addListener(new SimpleListener(){
+        objectAnimator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 appearRed();
@@ -116,14 +114,14 @@ public class TransitionLoopFragment extends Fragment {
         objectAnimator.start();
     }
 
-    void appearRed(){
+    void appearRed() {
         mRed.setVisibility(View.VISIBLE);
 
         int cx = mRed.getWidth() / 2;
         int cy = mRed.getHeight() / 2;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed,cx, cy, 0, mRed.getWidth()/2);
-        animator.addListener(new SimpleListener(){
+        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed, cx, cy, 0, mRed.getWidth() / 2);
+        animator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd() {
                 upRed();
@@ -133,12 +131,12 @@ public class TransitionLoopFragment extends Fragment {
         animator.start();
     }
 
-    void upRed(){
-        startRedX = ViewHelper.getX(mRed);
-        startRedY = ViewHelper.getY(mRed);
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mRed, "y", ViewHelper.getY(mRed),
+    void upRed() {
+        startRedX = mRed.getX();
+        startRedY = mRed.getY();
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mRed, "y", mRed.getY(),
                 mBluePair.getBottom() - mRed.getHeight() / 2);
-        objectAnimator.addListener(new SimpleListener(){
+        objectAnimator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 disappearRed();
@@ -149,18 +147,18 @@ public class TransitionLoopFragment extends Fragment {
         objectAnimator.start();
     }
 
-    void disappearRed(){
+    void disappearRed() {
 
         int cx = mRed.getWidth() / 2;
         int cy = mRed.getHeight() / 2;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed,cx, cy, mRed.getWidth()/2, 0);
-        animator.addListener(new SimpleListener(){
+        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed, cx, cy, mRed.getWidth() / 2, 0);
+        animator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd() {
                 mRed.setVisibility(View.INVISIBLE);
-                ViewHelper.setX(mRed,startRedX);
-                ViewHelper.setY(mRed,startRedY);
+                mRed.setX(startRedX);
+                mRed.setY(startRedY);
                 release();
             }
         });
@@ -168,9 +166,9 @@ public class TransitionLoopFragment extends Fragment {
         animator.start();
     }
 
-    void release(){
-        ObjectAnimator objectAnimator = ObjectAnimator.ofInt(mBluePair, "bottom", mBluePair.getBottom(),startBluePairBottom);
-        objectAnimator.addListener(new SimpleListener(){
+    void release() {
+        ObjectAnimator objectAnimator = ObjectAnimator.ofInt(mBluePair, "bottom", mBluePair.getBottom(), startBluePairBottom);
+        objectAnimator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd(Animator animator) {
                 disappearBluePair();
@@ -180,7 +178,7 @@ public class TransitionLoopFragment extends Fragment {
         objectAnimator.start();
     }
 
-    void disappearBluePair(){
+    void disappearBluePair() {
         float finalRadius = Math.max(mBluePair.getWidth(), mBluePair.getHeight()) * 1.5f;
 
         SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mBluePair, endBlueX, endBlueY,
@@ -197,7 +195,7 @@ public class TransitionLoopFragment extends Fragment {
         animator.start();
     }
 
-    void returnBlue(){
+    void returnBlue() {
         mBlue.setVisibility(View.VISIBLE);
         ArcAnimator arcAnimator = ArcAnimator.createArcAnimator(mBlue, startBlueX,
                 startBlueY, 90, Side.LEFT)
@@ -206,13 +204,13 @@ public class TransitionLoopFragment extends Fragment {
 
     }
 
-    public int dpToPx(int dp){
+    public int dpToPx(int dp) {
         DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 
 
-    private static class SimpleListener implements SupportAnimator.AnimatorListener, ObjectAnimator.AnimatorListener{
+    private static class SimpleListener implements SupportAnimator.AnimatorListener, ObjectAnimator.AnimatorListener {
 
         @Override
         public void onAnimationStart() {

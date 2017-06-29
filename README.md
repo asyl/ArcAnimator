@@ -1,5 +1,5 @@
 # ArcAnimator
-ArcAnimator helps to create arc transition animation: 2.3+
+ArcAnimator helps to create arc transition animation: 14+
 
 <img width="270" height="480" src="http://i.imgur.com/DSiQxbg.gif" />|<img width="270" height="480" src="http://i.imgur.com/aLcLrGk.gif" />
 
@@ -49,7 +49,6 @@ To include this library in your project add to your build.gradle:
 
 Dependency
 ===
-- Library uses Jake Wharton's <a href="https://github.com/JakeWharton/NineOldAndroids/">NineOldAndroids</a> to support 2.3.+ devices.
 - Ozodrukh's <a href="https://github.com/ozodrukh/CircularReveal">CircularReveal</a> helped to create awesome TransitionLoop Demo
 
 Thanks
