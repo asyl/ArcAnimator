@@ -1,6 +1,19 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@android:drawable/ic_menu_info_details" android:title="More info" app:showAsAction="always">
+        <menu>
+            <group
+                android:checkableBehavior="none" android:menuCategory="container">
+                <item
+                    android:id="@+id/menuItem_current_repository_website" android:title="Repository website"></item>
+                <item
+                    android:id="@+id/menuItem_all_my_repositories" android:title="All my repositories"></item>
+                <item
+                    android:id="@+id/menuItem_all_my_apps" android:title="All my apps"></item>
+            </group>
+        </menu>
+    </item>
+
 </menu>

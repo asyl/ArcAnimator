@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -13,9 +14,11 @@ android {
 }
 
 dependencies {
-    compile project(":animator")
-    compile 'com.android.support:appcompat-v7:28.0.0'
-    compile 'com.github.ozodrukh:CircularReveal:1.0.4@aar'
+    implementation project(":animator")
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.github.ozodrukh:CircularReveal:1.0.4@aar'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
 //    implementation ('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
 //        transitive = true;
 //    }
