@@ -3,8 +3,6 @@ package io.codetail.arcsample;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +13,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import io.codetail.animation.SupportAnimator;
 import io.codetail.animation.ViewAnimationUtils;
 import io.codetail.animation.arcanimator.ArcAnimator;
@@ -120,7 +120,7 @@ public class TransitionLoopFragment extends Fragment {
         int cx = mRed.getWidth() / 2;
         int cy = mRed.getHeight() / 2;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed, cx, cy, 0, mRed.getWidth() / 2);
+        SupportAnimator animator = io.codetail.animation.ViewAnimationUtils.createCircularReveal(mRed, cx, cy, 0, mRed.getWidth() / 2);
         animator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd() {
