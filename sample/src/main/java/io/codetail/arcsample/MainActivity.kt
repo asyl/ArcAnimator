@@ -3,9 +3,9 @@ package io.codetail.arcsample
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         if (url == null)
             return true
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        @Suppress("DEPRECATION")
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
         startActivity(intent)
