@@ -3,6 +3,10 @@ A bit updated fork of this:
 
 https://github.com/asyl/ArcAnimator
 
+----
+
+Original docs from it:
+
 ArcAnimator helps to create arc transition animation: 14+
 
 <img width="270" height="480" src="http://i.imgur.com/DSiQxbg.gif" />|<img width="270" height="480" src="http://i.imgur.com/aLcLrGk.gif" />
