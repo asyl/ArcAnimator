@@ -3,6 +3,10 @@ A bit updated fork of this:
 
 https://github.com/asyl/ArcAnimator
 
+Usage in gradle file:
+
+https://jitpack.io/#AndroidDeveloperLB/ArcAnimator
+
 ----
 
 Original docs from it:
