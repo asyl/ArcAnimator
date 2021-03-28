@@ -20,7 +20,7 @@ dependencies {
     implementation project(":animator")
     implementation 'com.google.android.material:material:1.4.0-alpha01'
 //    https://github.com/ozodrukh/CircularReveal
-    implementation ('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
+    implementation('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
         transitive = true
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
