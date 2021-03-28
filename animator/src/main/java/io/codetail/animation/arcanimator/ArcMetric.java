@@ -6,15 +6,15 @@ import java.util.Arrays;
 
 class ArcMetric {
 
-    PointF mStartPoint = new PointF();
+    final PointF mStartPoint = new PointF();
 
-    PointF mEndPoint = new PointF();
+    final PointF mEndPoint = new PointF();
 
-    PointF mMidPoint = new PointF();
+    final PointF mMidPoint = new PointF();
 
-    PointF mAxisPoint[] = new PointF[2];
+    final PointF[] mAxisPoint = new PointF[2];
 
-    PointF mZeroPoint = new PointF();
+    final PointF mZeroPoint = new PointF();
 
     //SEGMENTS. This Segments create virtual triangle except mZeroStartSegment
 

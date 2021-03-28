@@ -11,8 +11,8 @@ public class ArcDebugView extends View {
 
     private ArcMetric mArcMetric;
 
-    private Paint mPaintFill = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private Paint mPaintStroke = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint mPaintFill = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint mPaintStroke = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private static final int BLUE = 0xFF2196F3;
     private static final int PURPLE = 0xFF9C27B0;

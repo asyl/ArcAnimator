@@ -3,10 +3,13 @@ package io.codetail.arcsample;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import org.jetbrains.annotations.NotNull;
 
 public class ChooseFragment extends Fragment {
 
@@ -19,7 +22,7 @@ public class ChooseFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mArcAnimatorDemo = (Button) view.findViewById(R.id.demo_arcanimation);
         mTransitionDemo = (Button) view.findViewById(R.id.demo_transition);
@@ -27,16 +30,16 @@ public class ChooseFragment extends Fragment {
         mTransitionDemo.setOnClickListener(mClicker);
     }
 
-    View.OnClickListener mClicker = new View.OnClickListener() {
+    final View.OnClickListener mClicker = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.demo_arcanimation:
-                    getFragmentManager().beginTransaction().replace(R.id.container, new ArcTestFragment())
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ArcTestFragment())
                             .addToBackStack(getClass().getName()).commit();
                     break;
                 case R.id.demo_transition:
-                    getFragmentManager().beginTransaction().replace(R.id.container, new TransitionLoopFragment())
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new TransitionLoopFragment())
                             .addToBackStack(getClass().getName()).commit();
                     break;
             }

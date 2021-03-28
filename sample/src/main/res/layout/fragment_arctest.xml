@@ -1,60 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    tools:context=".MainActivity$PlaceholderFragment">
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#fff">
 
-    <LinearLayout
-        android:id="@+id/first_layer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:orientation="horizontal">
-        <EditText
-            android:id="@+id/arc_edit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:inputType="number"
-            android:hint="DEGREE"/>
-        <Button
-            android:id="@+id/arc_definer"
-            android:text="Define"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <EditText
-        android:id="@+id/arc_edit1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:layout_below="@id/first_layer"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:hint="SIDE 0-RIGHT; 1-LEFT"/>
-    <EditText
-        android:id="@+id/arc_edit2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:layout_below="@id/arc_edit1"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:hint="DURATION"/>
-    <ImageButton
-        android:id="@+id/circle_element"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/circle_test_button_red"
-        android:layout_marginBottom="50dp"/>
+  <EditText
+    android:id="@+id/arc_edit1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/first_layer" android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin" android:hint="SIDE 0-RIGHT; 1-LEFT" android:inputType="number" />
 
-    <io.codetail.animation.arcanimator.ArcDebugView
-        android:id="@+id/arc_debug"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+  <EditText
+    android:id="@+id/arc_edit2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/arc_edit1" android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin" android:hint="DURATION" android:inputType="number" />
+
+  <ImageButton
+    android:id="@+id/circle_element" android:layout_width="50dp" android:layout_height="50dp" android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
+    android:layout_marginBottom="50dp" android:background="@drawable/circle_test_button_red" />
+
+  <LinearLayout
+    android:id="@+id/first_layer" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin" android:layout_marginTop="@dimen/activity_vertical_margin" android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/arc_definer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Define" />
+
+    <EditText
+      android:id="@+id/arc_edit" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:hint="DEGREE" android:inputType="number" />
+  </LinearLayout>
+
+  <io.codetail.animation.arcanimator.ArcDebugView
+    android:id="@+id/arc_debug" android:layout_width="match_parent" android:layout_height="match_parent" />
 </RelativeLayout>

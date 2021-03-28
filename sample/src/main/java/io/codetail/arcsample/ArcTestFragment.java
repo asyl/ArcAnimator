@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import org.jetbrains.annotations.NotNull;
+
 import io.codetail.animation.arcanimator.ArcAnimator;
 import io.codetail.animation.arcanimator.ArcDebugView;
 import io.codetail.animation.arcanimator.Side;
@@ -44,7 +46,7 @@ public class ArcTestFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mParent = (ViewGroup) view;
 
@@ -61,7 +63,7 @@ public class ArcTestFragment extends Fragment {
         mDefiner.setOnClickListener(mClicker);
     }
 
-    View.OnClickListener mClicker = new View.OnClickListener() {
+    final View.OnClickListener mClicker = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (TextUtils.isEmpty(mDegreeEditor.getText().toString()) ||
