@@ -3,8 +3,6 @@ package io.codetail.arcsample;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,9 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
-import io.codetail.animation.SupportAnimator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import io.codetail.animation.ViewAnimationUtils;
 import io.codetail.animation.arcanimator.ArcAnimator;
 import io.codetail.animation.arcanimator.Side;
@@ -51,7 +51,7 @@ public class TransitionLoopFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mParent = view;
         mBlue = (ImageButton) view.findViewById(R.id.transition_blue);
@@ -60,7 +60,7 @@ public class TransitionLoopFragment extends Fragment {
         mBlue.setOnClickListener(mClicker);
     }
 
-    View.OnClickListener mClicker = new View.OnClickListener() {
+    final View.OnClickListener mClicker = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             startBlueX = Utils.centerX(mBlue);
@@ -88,13 +88,14 @@ public class TransitionLoopFragment extends Fragment {
 
         float finalRadius = Math.max(mBluePair.getWidth(), mBluePair.getHeight()) * 1.5f;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mBluePair, endBlueX, endBlueY, mBlue.getWidth() / 2f,
+        Animator animator = ViewAnimationUtils.createCircularReveal(mBluePair, endBlueX, endBlueY, mBlue.getWidth() / 2f,
                 finalRadius);
         animator.setDuration(500);
         animator.setInterpolator(ACCELERATE);
         animator.addListener(new SimpleListener() {
             @Override
-            public void onAnimationEnd() {
+            public void onAnimationEnd(final Animator animation) {
+                super.onAnimationEnd(animation);
                 raise();
             }
         });
@@ -120,10 +121,11 @@ public class TransitionLoopFragment extends Fragment {
         int cx = mRed.getWidth() / 2;
         int cy = mRed.getHeight() / 2;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed, cx, cy, 0, mRed.getWidth() / 2);
+        Animator animator = io.codetail.animation.ViewAnimationUtils.createCircularReveal(mRed, cx, cy, 0, mRed.getWidth() / 2f);
         animator.addListener(new SimpleListener() {
             @Override
-            public void onAnimationEnd() {
+            public void onAnimationEnd(final Animator animation) {
+                super.onAnimationEnd(animation);
                 upRed();
             }
         });
@@ -135,7 +137,7 @@ public class TransitionLoopFragment extends Fragment {
         startRedX = mRed.getX();
         startRedY = mRed.getY();
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mRed, "y", mRed.getY(),
-                mBluePair.getBottom() - mRed.getHeight() / 2);
+                mBluePair.getBottom() - mRed.getHeight() / 2f);
         objectAnimator.addListener(new SimpleListener() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -152,10 +154,11 @@ public class TransitionLoopFragment extends Fragment {
         int cx = mRed.getWidth() / 2;
         int cy = mRed.getHeight() / 2;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRed, cx, cy, mRed.getWidth() / 2, 0);
+        Animator animator = ViewAnimationUtils.createCircularReveal(mRed, cx, cy, mRed.getWidth() / 2f, 0);
         animator.addListener(new SimpleListener() {
             @Override
-            public void onAnimationEnd() {
+            public void onAnimationEnd(final Animator animation) {
+                super.onAnimationEnd(animation);
                 mRed.setVisibility(View.INVISIBLE);
                 mRed.setX(startRedX);
                 mRed.setY(startRedY);
@@ -181,12 +184,13 @@ public class TransitionLoopFragment extends Fragment {
     void disappearBluePair() {
         float finalRadius = Math.max(mBluePair.getWidth(), mBluePair.getHeight()) * 1.5f;
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mBluePair, endBlueX, endBlueY,
+        Animator animator = ViewAnimationUtils.createCircularReveal(mBluePair, endBlueX, endBlueY,
                 finalRadius, mBlue.getWidth() / 2f);
         animator.setDuration(500);
         animator.addListener(new SimpleListener() {
             @Override
-            public void onAnimationEnd() {
+            public void onAnimationEnd(final Animator animation) {
+                super.onAnimationEnd(animation);
                 mBluePair.setVisibility(View.INVISIBLE);
                 returnBlue();
             }
@@ -210,28 +214,7 @@ public class TransitionLoopFragment extends Fragment {
     }
 
 
-    private static class SimpleListener implements SupportAnimator.AnimatorListener, ObjectAnimator.AnimatorListener {
-
-        @Override
-        public void onAnimationStart() {
-
-        }
-
-        @Override
-        public void onAnimationEnd() {
-
-        }
-
-        @Override
-        public void onAnimationCancel() {
-
-        }
-
-        @Override
-        public void onAnimationRepeat() {
-
-        }
-
+    private static class SimpleListener implements Animator.AnimatorListener {
         @Override
         public void onAnimationStart(Animator animation) {
 

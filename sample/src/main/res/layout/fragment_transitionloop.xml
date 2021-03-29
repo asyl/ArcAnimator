@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff">
+<io.codetail.widget.RevealFrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#fff">
+
+  <ImageButton
+    android:id="@+id/transition_blue" android:layout_width="60dp" android:layout_height="60dp" android:layout_gravity="center_vertical"
+    android:background="@drawable/circle_test_button_indigo" />
+
+  <ImageButton
+    android:id="@+id/transition_red" android:layout_width="60dp" android:layout_height="60dp" android:layout_gravity="bottom|right" android:layout_marginBottom="20dp"
+    android:layout_marginRight="20dp" android:background="@drawable/circle_test_button_red" android:visibility="invisible" />
+
     <io.codetail.widget.RevealFrameLayout
-        android:id="@+id/transition_blue_pair"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#3F51B5"
-        android:visibility="invisible">
-    </io.codetail.widget.RevealFrameLayout>
-    <ImageButton
-        android:id="@+id/transition_blue"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/circle_test_button_indigo"/>
-    <ImageButton
-        android:id="@+id/transition_red"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:visibility="invisible"
-        android:background="@drawable/circle_test_button_red"/>
+      android:id="@+id/transition_blue_pair" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#3F51B5" android:visibility="invisible" />
 </io.codetail.widget.RevealFrameLayout>

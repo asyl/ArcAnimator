@@ -25,9 +25,9 @@ public class ArcAnimator extends Animator {
         return new ArcAnimator(arcMetric, clipView);
     }
 
-    ArcMetric mArcMetric;
-    WeakReference<View> mTarget;
-    WeakReference<ValueAnimator> mAnimator;
+    final ArcMetric mArcMetric;
+    final WeakReference<View> mTarget;
+    final WeakReference<ValueAnimator> mAnimator;
     float mValue;
 
 
@@ -38,12 +38,7 @@ public class ArcAnimator extends Animator {
         mAnimator = new WeakReference<>(
                 ValueAnimator.ofFloat(arcmetric.getStartDegree(), arcmetric.getEndDegree())
         );
-        mAnimator.get().addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                setDegree((Float) animation.getAnimatedValue());
-            }
-        });
+        mAnimator.get().addUpdateListener(animation -> setDegree((Float) animation.getAnimatedValue()));
     }
 
     void setDegree(float degree) {
@@ -53,8 +48,8 @@ public class ArcAnimator extends Animator {
                 * Utils.cos(degree);
         float y = mArcMetric.getAxisPoint().y - mArcMetric.mRadius
                 * Utils.sin(degree);
-        clipView.setX(x - clipView.getWidth() / 2);
-        clipView.setY(y - clipView.getHeight() / 2);
+        clipView.setX(x - clipView.getWidth() / 2f);
+        clipView.setY(y - clipView.getHeight() / 2f);
     }
 
     float getDegree() {
